@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 
-
 const nodemailer = require('nodemailer');
 
 router.post('/', (req, res) => {
@@ -11,20 +10,17 @@ router.post('/', (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'icloud',
     auth: {
-      user: 'taiwo.abrahams@icloud.com',
-      pass: 'wxoa-pkli-wyle-oszw',
+      user: process.env.TRANS_EMAIL,
+      pass: process.env.TRANS_PASS,
     },
   });
 
   const mailToOptions = {
-    from: 'taiwo.abrahams@icloud.com',
+    from: process.env.TRANS_EMAIL,
     to: 'dee.abrahams08@gmail.com',
     subject: 'Media Masons contact form',
     text,
   };
-
-  // eslint-disable-next-line no-console
-  console.log(req.body.allValues);
 
   transporter.sendMail(mailToOptions, (err, info) => {
     if (err) {
