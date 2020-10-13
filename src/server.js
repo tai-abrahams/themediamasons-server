@@ -23,7 +23,7 @@ const app = express();
 // eslint-disable-next-line no-unused-expressions
 
 /*
-mongoose.connect('mongodb+srv://mediamasons:media123@list.ix1mg.mongodb.net/forms?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://process.env.MONGODB_USER:process.env.MONGODB_PASS@list.ix1mg.mongodb.net/forms?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((e) => {
   // eslint-disable-next-line no-console
